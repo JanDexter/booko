@@ -93,6 +93,10 @@ class Main {
             System.out.println("Use the format yyyy-MM-dd.");
             return;
         }
+        if (deliveryDate.isBefore(LocalDate.now())) {
+            System.out.println("Delivery date cannot be in the past.");
+            return;
+        }
 
         Drink chosen = drinks.get(flavorNumber - 1);
         System.out.println(service.book(name, quantity,chosen, deliveryDate.toString()));
